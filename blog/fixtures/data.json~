@@ -1,0 +1,88 @@
+[
+  {
+    "model": "blog.Post",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "title": "Один",
+      "text": "Текст"
+    }
+  },
+  {
+    "model": "blog.Post",
+    "pk": 2,
+    "fields": {
+      "author": 1,
+      "title": "Два",
+      "text": "Текст"
+    }
+  },
+  {
+    "model": "blog.Post",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "title": "Три",
+      "text": "Текст"
+    }
+  },
+  {
+    "model": "blog.Post",
+    "pk": 2,
+    "fields": {
+      "author": 1,
+      "title": "Четыре",
+      "text": "Текст"
+    }
+  },
+  {
+    "model": "blog.Post",
+    "pk": 2,
+    "fields": {
+      "author": 1,
+      "title": "Пять",
+      "text": "Текст"
+    }
+  },
+
+  {
+    "model": "blog.Comment",
+    "pk": 1,
+    "fields": {
+      "post": 1,
+      "text": "Коммент 1"
+    }
+  },
+  {
+    "model": "blog.Comment",
+    "pk": 2,
+    "fields": {
+      "post": 2,
+      "text": "Коммент 2"
+    }
+  },
+  {
+    "model": "blog.Comment",
+    "pk": 1,
+    "fields": {
+      "post": 3,
+      "text": "Коммент 3"
+    }
+  },
+  {
+    "model": "blog.Comment",
+    "pk": 2,
+    "fields": {
+      "post": 4,
+      "text": "Коммент 4"
+    }
+  },
+  {
+    "model": "blog.Comment",
+    "pk": 2,
+    "fields": {
+      "post": 5,
+      "text": "Коммент 5"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+import yaml
+
+stream = open('test.yaml', 'r')
+t = yaml.load(stream)
+#print(t)
+
+for k, v in t.items():
+    print(k) # модель
+    for k1, v1 in v.items():
+        print('  ', k1) # поле модели
+        for k2, v2 in v1.items():
+            print('    ', k2, ' : ', v2) # атрибут : значение
+

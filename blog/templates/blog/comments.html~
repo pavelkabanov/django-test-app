@@ -1,0 +1,71 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for msg in messages %}       
+        <div class="alert alert-{{msg.level_tag}}" role="alert">
+ 	{{msg.message}}
+	</div>
+    {% endfor %}
+{% endif %}
+
+<ul class="nav nav-tabs">
+  <li><a href="/posts">Посты</a></li>
+  <li><a href="/users">Юзеры</a></li>
+  <li class="active"><a href="/comments">Комменты</a></li>
+</ul>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Комментарий</th>
+        <th>Пост</th>
+        <th>Дата</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for comment in comments %}
+      <tr>
+        <td><a href="{% url 'comment_edit' pk=comment.pk %}">{{ comment.text }}</a></td>
+        <td>{{ comment.post }}</td>
+        <td>{{ comment.created_date }}</td>
+        <td><a href="{% url 'comment_delete' pk=comment.pk %}"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Удалить</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<ul class="pagination">
+    {% if comments.number|add:"-2" >= 1 %}
+        <li>
+            <a href='?page={{ comments.number|add:"-2" }}'>{{ comments.number|add:"-2" }}</a>
+        </li>   
+    {% endif %}
+
+    {% if comments.has_previous %}
+        <li>
+            <a href="?page={{ comments.previous_page_number }}">{{ comments.previous_page_number }}</a>
+        </li>
+    {% endif %}
+
+    <li class="active">
+        <a href="?page={{ comments.number }}">{{ comments.number }}</a>
+    </li>
+
+    {% if comments.has_next %}
+        <li>
+            <a href="?page={{ comments.next_page_number }}">{{ comments.next_page_number }}</a>
+        </li>
+    {% endif %}
+
+    {% if comments.number|add:"2" <= comments.paginator.num_pages %}
+        <li>
+            <a href='?page={{ comments.number|add:"2" }}'>{{ comments.number|add:"2" }}</a>
+        </li>   
+    {% endif %}
+</ul>
+
+{% endblock content %}
